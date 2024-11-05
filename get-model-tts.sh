@@ -1,0 +1,1 @@
+wget https://github.com/Wikidepia/indonesian-tts/releases/download/v1.2/checkpoint_1260000-inference.pth
