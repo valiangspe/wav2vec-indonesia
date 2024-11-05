@@ -1,5 +1,7 @@
 .venv
 run-real.sh
+run-speechgen-only-real.sh
 output.mp3
 output.wav
 checkpoint*
+speechgen-res/
