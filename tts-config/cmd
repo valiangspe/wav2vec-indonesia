@@ -1,0 +1,11 @@
+docker run --rm -it -p 5002:5002 --gpus all --entrypoint /bin/bash ghcr.io/coqui-ai/tts
+python3 TTS/server/server.py --list_models #To get the list of available models
+python3 TTS/server/server.py --model_name tts_models/en/vctk/vits --use_cuda true
+
+
+python3 TTS/server/server.py \
+  --model_path /models/checkpoint_1260000-inference.pth \
+  --config_path /models/config.json \
+  --speakers_file_path /models/speakers.pth \
+  --use_cuda true \
+  --port 5002

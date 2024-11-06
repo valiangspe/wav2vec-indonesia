@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  coqui_tts:
+    image: ghcr.io/coqui-ai/tts
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    ports:
+      - "5002:5002"
+    volumes:
+      - .:/models
+      - ./speakers.pth:/root/speakers.pth
+    entrypoint: ["python3", "TTS/server/server.py"]
+    command:
+      [
+        "--model_path", "/models/checkpoint_1260000-inference.pth",
+        "--config_path", "/models/config.json",
+        "--speakers_file_path", "/models/speakers.pth",
+        "--use_cuda", "true",
+        "--port", "5002"
+      ]
